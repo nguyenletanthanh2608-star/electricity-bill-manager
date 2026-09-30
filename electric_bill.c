@@ -3,12 +3,12 @@
 // Hàm in bảng giá điện hiện hành
 void inbanggia() {
     printf("\n--- BANG GIA DIEN SINH HOAT (CHUA VAT) ---\n");
-    printf("Bac 1 (0 - 50 kWh)     : 1.893 đ/kWh\n");
-    printf("Bac 2 (51 - 100 kWh)   : 1.956 đ/kWh\n");
-    printf("Bac 3 (101 - 200 kWh)  : 2.271 đ/kWh\n");
-    printf("Bac 4 (201 - 300 kWh)  : 2.860 đ/kWh\n");
-    printf("Bac 5 (301 - 400 kWh)  : 3.197 đ/kWh\n");
-    printf("Bac 6 (Tu 401 kWh)     : 3.302 đ/kWh\n");
+    printf("Bac 1 (0 - 50 kWh)     : 1.984 đ/kWh\n");
+    printf("Bac 2 (51 - 100 kWh)   : 2.050 đ/kWh\n");
+    printf("Bac 3 (101 - 200 kWh)  : 2.380 đ/kWh\n");
+    printf("Bac 4 (201 - 300 kWh)  : 2.998 đ/kWh\n");
+    printf("Bac 5 (301 - 400 kWh)  : 3.350 đ/kWh\n");
+    printf("Bac 6 (Tu 401 kWh)     : 3.460 đ/kWh\n");
     printf("------------------------------------------\n");
 }
 
@@ -17,17 +17,17 @@ double tinhtiendien(float kwh) {
     double tien = 0;
 
     if (kwh <= 50) {
-        tien = kwh * 1893;
+        tien = kwh * 1984;
     } else if (kwh <= 100) {
-        tien = 50 * 1893 + (kwh - 50) * 1956;
+        tien = 50 * 1984 + (kwh - 50) * 2050;
     } else if (kwh <= 200) {
-        tien = 50 * 1893 + 50 * 1956 + (kwh - 100) * 2271;
+        tien = 50 * 1984 + 50 * 2050 + (kwh - 100) * 2380;
     } else if (kwh <= 300) {
-        tien = 50 * 1893 + 50 * 1956 + 100 * 2271 + (kwh - 200) * 2860;
+        tien = 50 * 1984 + 50 * 2050 + 100 * 2380 + (kwh - 200) * 2998;
     } else if (kwh <= 400) {
-        tien = 50 * 1893 + 50 * 1956 + 100 * 2271 + 100 * 2860 + (kwh - 300) * 3197;
+        tien = 50 * 1984 + 50 * 2050 + 100 * 2380 + 100 * 2998 + (kwh - 300) * 3350;
     } else {
-        tien = 50 * 1893 + 50 * 1956 + 100 * 2271 + 100 * 2860 + 100 * 3197 + (kwh - 400) * 3302;
+        tien = 50 * 1984 + 50 * 2050 + 100 * 2380 + 100 * 2998 + 100 * 3350 + (kwh - 400) * 3460;
     }
 
     return tien;
