@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-// 1. Hàm in bảng giá điện hiện hành
-void inBangGia() {
+// Hàm in bảng giá điện hiện hành
+void inbanggia() {
     printf("\n--- BANG GIA DIEN SINH HOAT (CHUA VAT) ---\n");
     printf("Bac 1 (0 - 50 kWh)     : 1.893 đ/kWh\n");
     printf("Bac 2 (51 - 100 kWh)   : 1.956 đ/kWh\n");
@@ -12,8 +12,8 @@ void inBangGia() {
     printf("------------------------------------------\n");
 }
 
-// 2. Hàm tính tiền điện theo bậc lũy tiến (Trả về số tiền)
-double tinhTienDien(float kwh) {
+// Hàm tính tiền điện theo bậc lũy tiến 
+double tinhtiendien(float kwh) {
     double tien = 0;
 
     if (kwh <= 50) {
@@ -33,23 +33,23 @@ double tinhTienDien(float kwh) {
     return tien;
 }
 
-// 3. Hàm in hóa đơn chi tiết
-void inHoaDon(float kwh) {
-    double tienGốc = tinhTienDien(kwh);
-    double thueVAT = tienGốc * 0.08; // Thuế VAT 8%
-    double tongTien = tienGốc + thueVAT;
+//  Hàm in hóa đơn chi tiết
+void inhoadon(float kwh) {
+    double tiengoc = tinhtiendien(kwh);
+    double thueVAT = tiengoc * 0.08; 
+    double tongtien = tiengoc + thueVAT;
 
     printf("\n========= HOA DON TIEN DIEN =========\n");
     printf("So kWh tieu thu   : %.1f kWh\n", kwh);
-    printf("Tien dien truoc thue: %.0f VNĐ\n", tienGốc);
+    printf("Tien dien truoc thue: %.0f VNĐ\n", tiengoc);
     printf("Thue VAT (8%%)     : %.0f VNĐ\n", thueVAT);
     printf("-------------------------------------\n");
-    printf("TONG TIEN THANH TOAN: %.0f VNĐ\n", tongTien);
+    printf("TONG TIEN THANH TOAN: %.0f VNĐ\n", tongtien);
     printf("=====================================\n");
 }
 
 int main() {
-    int luaChon;
+    int luachon;
     float kwh;
 
     do {
@@ -59,20 +59,20 @@ int main() {
         printf("2. Xem bang gia dien hien hanh\n");
         printf("0. Thoat\n");
         printf("Lua chon cua ban: ");
-        scanf("%d", &luaChon);
+        scanf("%d", &luachon);
 
-        switch (luaChon) {
+        switch (luachon) {
             case 1:
                 printf("\nNhap so kWh tieu thu: ");
                 scanf("%f", &kwh);
                 if (kwh < 0) {
                     printf(">> Loi: So kWh khong the la so am!\n");
                 } else {
-                    inHoaDon(kwh);
+                    inhoadon(kwh);
                 }
                 break;
             case 2:
-                inBangGia();
+                inbanggia();
                 break;
             case 0:
                 printf("Da thoat chuong trinh.\n");
@@ -80,7 +80,7 @@ int main() {
             default:
                 printf(">> Lua chon khong hop le, vui long chon lai!\n");
         }
-    } while (luaChon != 0); // Vòng lặp giữ chương trình chạy liên tục tới khi bấm 0
+    } while (luachon != 0); 
 
     return 0;
 }
